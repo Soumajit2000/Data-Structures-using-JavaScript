@@ -3,25 +3,30 @@ class Array {
 		this.length = 0;
 		this.data = {};
 	}
+
 	get(index) {
 		return this.data[index];
 	}
+
 	push(item) {
 		this.data[this.length] = item;
 		this.length++;
 		return this.data;
 	}
+
 	pop() {
-		let lastItem = this.data[this.length - 1];
+		const lastItem = this.data[this.length - 1];
 		delete this.data[this.length - 1];
 		this.length--;
-		return lastItem;
+		return this.data;
 	}
+
 	deleteAtIndex(index) {
 		const item = this.data[index];
 		this.shiftItems(index);
 		return item;
 	}
+
 	shiftItems(index) {
 		for (let i = index; i < this.length - 1; i++) {
 			this.data[i] = this.data[i + 1];
@@ -35,12 +40,10 @@ const myArray = new Array();
 myArray.push("mancity");
 myArray.push("chelsea");
 myArray.push("liverpool");
-console.log(myArray);
-myArray.push("leicester");
-myArray.push("spurs");
-console.log(myArray);
 myArray.pop();
 console.log(myArray);
-console.log(myArray.get(0));
-myArray.deleteAtIndex(1);
+myArray.push("leicester");
+myArray.push("West ham");
+console.log(myArray);
+myArray.deleteAtIndex(2);
 console.log(myArray);
