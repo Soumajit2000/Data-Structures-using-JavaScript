@@ -18,7 +18,7 @@ class Array {
 		const lastItem = this.data[this.length - 1];
 		delete this.data[this.length - 1];
 		this.length--;
-		return this.data;
+		return lastItem;
 	}
 
 	deleteAtIndex(index) {
