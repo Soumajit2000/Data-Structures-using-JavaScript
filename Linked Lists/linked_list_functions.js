@@ -70,24 +70,32 @@ class LinkedList {
 
 	//* remove an element at any given index
 	remove(index) {
-		if (index === 0) {
+		if(index > this.length){
+			console.log("Index out of bound!")
+		}
+		else if (index === 0) {
 			let curr = this.head;
 			this.head = curr.next;
 			this.length--;
-		} else {
+		} 
+		else{
 			let prev, curr;
 			curr = this.head;
-			let i = 0;
-			while (i !== index) {
-				i++;
+			let i=0
+			while (i < index) {
 				prev = curr;
-				curr = curr.next;
+				curr = curr.next
+				i++
 			}
-			if (index === this.length - 1) prev.next = null;
+			if(curr.next == null){
+				prev.next = null
+				this.length--
+			}
 			else {
-				prev.next = curr.next;
+				prev.next = curr.next
+				this.length--
 			}
-			this.length--;
+			
 		}
 	}
 
@@ -101,9 +109,22 @@ class LinkedList {
 			} else {
 				list += curr.value + " ";
 			}
-			curr = curr.next;
+			curr = curr.next
 		}
 		console.log(list);
+	}
+
+	reverse(){
+		let prev, current, next;
+		prev = null;
+		current  = this.head;
+		while(current !== null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		this.head = prev
 	}
 }
 
@@ -116,6 +137,6 @@ myLinkedList.append(39);
 myLinkedList.insert(3, 17);
 myLinkedList.insert(6, 23);
 myLinkedList.remove(2);
-myLinkedList.remove(5);
-myLinkedList.remove(5);
-myLinkedList.printList();
+myLinkedList.remove(6);
+myLinkedList.reverse()
+// myLinkedList.printList()
