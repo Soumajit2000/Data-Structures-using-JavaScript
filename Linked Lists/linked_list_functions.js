@@ -38,32 +38,34 @@ class LinkedList {
 		let prev, curr;
 
 		//! Checking invalid index input
-		if (index < 0 || index > this.size || !index) {
+		if (index < 0) {
 			console.log("Enter a valid index");
 		}
 
 		//! If the index is the last index, call append function
-		if (index === this.length) {
+		if (index >= this.length) {
 			this.append(value);
 		}
 
 		//!If index is the first element, then call prepend function
-		if (index === 0) {
+		else if (index === 0) {
 			this.prepend(value);
 		}
 
 		//! adding elemetin the middle of the LinkedList
-		curr = this.head;
-		let it = 0;
-		while (it < index) {
-			it++;
-			prev = curr;
-			curr = curr.next;
+		else {
+			curr = this.head;
+			let it = 0;
+			while (it < index) {
+				it++;
+				prev = curr;
+				curr = curr.next;
+			}
+			newNode.value = value;
+			newNode.next = curr;
+			prev.next = newNode;
+			this.length++;
 		}
-		newNode.value = value;
-		newNode.next = curr;
-		prev.next = newNode;
-		this.length++;
 	}
 
 	//* remove an element at any given index
@@ -72,8 +74,7 @@ class LinkedList {
 			let curr = this.head;
 			this.head = curr.next;
 			this.length--;
-		} 
-		else {
+		} else {
 			let prev, curr;
 			curr = this.head;
 			let i = 0;
@@ -82,10 +83,9 @@ class LinkedList {
 				prev = curr;
 				curr = curr.next;
 			}
-			if (index === this.length - 1) 
-			prev.next = null
-			else{
-				prev.next = curr.next
+			if (index === this.length - 1) prev.next = null;
+			else {
+				prev.next = curr.next;
 			}
 			this.length--;
 		}
@@ -115,7 +115,7 @@ myLinkedList.prepend(56);
 myLinkedList.append(39);
 myLinkedList.insert(3, 17);
 myLinkedList.insert(6, 23);
-myLinkedList.remove(2)
-myLinkedList.remove(5)
-myLinkedList.remove(5)
+myLinkedList.remove(2);
+myLinkedList.remove(5);
+myLinkedList.remove(5);
 myLinkedList.printList();
