@@ -138,5 +138,6 @@ myLinkedList.insert(3, 17);
 myLinkedList.insert(6, 23);
 myLinkedList.remove(2);
 myLinkedList.remove(6);
+myLinkedList.printList();
 myLinkedList.reverse()
-// myLinkedList.printList()
+myLinkedList.printList()
