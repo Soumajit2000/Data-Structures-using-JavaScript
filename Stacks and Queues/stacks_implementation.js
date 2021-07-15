@@ -50,6 +50,7 @@ myStack.peek();
 myStack.push("Google");
 myStack.push("Udemy");
 myStack.push("Twitter");
+myStack.push("Twitch");
 console.log(myStack.push("Youtube"));
 myStack.pop();
 myStack.pop();
