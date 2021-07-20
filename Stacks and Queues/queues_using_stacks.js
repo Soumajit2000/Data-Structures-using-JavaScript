@@ -22,7 +22,7 @@ class Stacks2Queues {
 	}
 
 	peek() {
-		if (!this.s1.length && this.s2.length) {
+		if (!this.s1.length && !this.s2.length) {
 			return "Stack is empty";
 		} else if (this.s1.length > 0) {
 			return this.s1[this.s1.length - 1];
